@@ -1,4 +1,4 @@
-export interface address{
+export interface Address{
     firstName?: string;
     lastName?: string;
     zip?: string;
@@ -10,4 +10,5 @@ export interface address{
     city?: string;
     state?: string;
     country?: string;
+
 }
