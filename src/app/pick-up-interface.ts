@@ -1,6 +1,6 @@
+import { address } from './address-interface';
 export interface PickUp {
     id: number;
-    clientName: string;
-    clientPhone: number;
+    address: address;
     time: Date;
 }
