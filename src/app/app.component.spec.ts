@@ -26,10 +26,11 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('delivery-service-app');
   });
 
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('delivery-service-app app is running!');
-  });
+  // spec (default spec not needed)
+  // it('should render title', () => {
+  //   const fixture = TestBed.createComponent(AppComponent);
+  //   fixture.detectChanges();
+  //   const compiled = fixture.nativeElement;
+  //   expect(compiled.querySelector('.content span').textContent).toContain('delivery-service-app app is running!');
+  // });
 });
