@@ -12,13 +12,15 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { HttpClientModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './in-memory-data.service';
+import { DetailComponent } from './detail/detail.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     ListComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    DetailComponent
   ],
   imports: [
     BrowserModule,

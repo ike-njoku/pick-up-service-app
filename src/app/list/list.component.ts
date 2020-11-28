@@ -14,12 +14,14 @@ export class ListComponent implements OnInit {
   // the data source from where the table is populated
   dataSource: PickUp[];
 
-  // pickups url
-  private pickUpsUrl = 'api/PICKUPS';
-
   // defining the columns to be displayed
   displayedColumns: string[]=['id', 'clientName', 'pickUpLocation', 'time'];
 
+
+  // pickups url
+  private pickUpsUrl = 'api/PICKUPS';
+
+  
   constructor(private pickupService: PickUpService) { }
 
   // get pickups from server
@@ -28,9 +30,7 @@ export class ListComponent implements OnInit {
   }
   
   ngOnInit(): void {
-
     this.getPickUps();
-    
   }
 
 
