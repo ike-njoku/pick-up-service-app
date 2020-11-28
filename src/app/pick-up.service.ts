@@ -11,7 +11,8 @@ export class PickUpService {
   constructor(private http: HttpClient) { }
 
   // get pickUps
-  private getPickUps( url, query? ): Observable<PickUp[]>{
+  getPickUps( url, query? ): Observable<PickUp[]>{
     return this.http.get<PickUp[]>(url);
   }
 }
+

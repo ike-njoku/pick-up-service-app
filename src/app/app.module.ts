@@ -10,6 +10,8 @@ import { ListComponent } from './list/list.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 // http
 import { HttpClientModule } from '@angular/common/http';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDataService } from './in-memory-data.service';
 
 
 @NgModule({
@@ -23,7 +25,8 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
-    HttpClientModule
+    HttpClientModule,
+    HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService,{dataEncapsulation: false})
   ],
   providers: [],
   bootstrap: [AppComponent]

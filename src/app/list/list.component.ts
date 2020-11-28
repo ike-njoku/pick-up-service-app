@@ -1,31 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { PickUp } from '../pick-up-interface';
-
+import { PickUpService } from '../pick-up.service';
 
 
 // DATA SOURCE (replace using http client and a url)
-const TABLE_DATA: PickUp[] = [
-
-  {id: 1, 
-    pickUpTime:'Wed Nov 25 2020 11:23:26 GMT-0800', 
-    address: {
-    firstName:'David',
-    phoneNumber: 7038686694,
-    zip:'5445-Aba',
-    street:'MungoPark'
-  }},
-  
-  {id: 2, 
-    pickUpTime:'Wed Nov 25 2020 12:54:47 GMT-0800', 
-    address: {
-    firstName:'Chidalu',
-    phoneNumber: 7038792802,
-    zip:'4127-OWR',
-    street:'Chukwuma Nworah'
-  }}
-
-];
-
 
 @Component({
   selector: 'app-list',
@@ -34,14 +12,24 @@ const TABLE_DATA: PickUp[] = [
 })
 export class ListComponent implements OnInit {
   // the data source from where the table is populated
-  dataSource = TABLE_DATA;
+  dataSource: PickUp[];
+
+  // pickups url
+  private pickUpsUrl = 'api/PICKUPS';
 
   // defining the columns to be displayed
   displayedColumns: string[]=['id', 'clientName', 'pickUpLocation', 'time'];
 
-  constructor() { }
+  constructor(private pickupService: PickUpService) { }
+
+  // get pickups from server
+  getPickUps(){
+    this.pickupService.getPickUps(this.pickUpsUrl).subscribe((p)=>{this.dataSource = p })
+  }
   
   ngOnInit(): void {
+
+    this.getPickUps();
     
   }
 
