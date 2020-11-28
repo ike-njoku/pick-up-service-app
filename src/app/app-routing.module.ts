@@ -9,7 +9,7 @@ const routes: Routes = [
   {path:'', redirectTo:'/route-list', pathMatch: 'full'},
   {path: 'route-list', component:ListComponent},
   // detail component
-  {path:'detail/Pick-up-Id:id', component:DetailComponent },
+  {path:'/detail/pick-up-id/:id', component:DetailComponent },
   // wild card
   {path:'**', component:PageNotFoundComponent}
 ];

@@ -14,5 +14,11 @@ export class PickUpService {
   getPickUps( url, query? ): Observable<PickUp[]>{
     return this.http.get<PickUp[]>(url);
   }
+
+  // get singule pickup
+  getPickUp(url,id): Observable<PickUp>{
+    const url_ = `${url}/${id}`;
+    return this.http.get<PickUp>(url_);
+  }
 }
 
