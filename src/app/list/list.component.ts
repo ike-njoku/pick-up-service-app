@@ -15,7 +15,7 @@ export class ListComponent implements OnInit {
   dataSource: PickUp[];
 
   // defining the columns to be displayed
-  displayedColumns: string[]=['id', 'clientName', 'pickUpLocation', 'time'];
+  displayedColumns: string[]=['id', 'clientName', 'pickUpLocation', 'time', 'link'];
 
 
   // pickups url
