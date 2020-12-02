@@ -13,6 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './in-memory-data.service';
 import { DetailComponent } from './detail/detail.component';
+import { FeedBackComponent } from './feed-back/feed-back.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { DetailComponent } from './detail/detail.component';
     AppComponent,
     ListComponent,
     PageNotFoundComponent,
-    DetailComponent
+    DetailComponent,
+    FeedBackComponent
   ],
   imports: [
     BrowserModule,

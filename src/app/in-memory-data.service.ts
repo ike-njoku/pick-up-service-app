@@ -15,7 +15,7 @@ export class InMemoryDataService implements InMemoryDbService {
         phoneNumber: 7038686694,
         zip:'5445-Aba',
         street:'MungoPark'
-      }},
+      },pickedUp:true},
       
       {id: 2, 
         pickUpTime:'Wed Nov 25 2020 12:54:47 GMT-0800', 
@@ -24,7 +24,25 @@ export class InMemoryDataService implements InMemoryDbService {
         phoneNumber: 7038792802,
         zip:'4127-OWR',
         street:'Chukwuma Nworah'
-      }}
+      }
+      ,
+      pickedUp:false},
+      {id: 3, 
+        pickUpTime:'Wed Nov 25 2020 12:54:47 GMT-0800', 
+        address: {
+        firstName:'Ebube',
+        phoneNumber: 7038799447,
+        zip:'4127-OWR',
+        street:'Ihiagwa'
+      },pickedUp:false},
+      {id: 4, 
+        pickUpTime:'Wed Nov 25 2020 12:54:47 GMT-0825', 
+        address: {
+        firstName:'Linus',
+        phoneNumber: 7038711762,
+        zip:'4127-OWR',
+        street:'World Bank'
+      },pickedUp:false}
 
     ];
 

@@ -1,5 +1,7 @@
+import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router'
+import { FeedBackService } from '../feed-back.service';
 import { PickUp } from '../pick-up-interface';
 import { PickUpService } from '../pick-up.service';
 
@@ -9,27 +11,20 @@ import { PickUpService } from '../pick-up.service';
   styleUrls: ['./detail.component.css']
 })
 export class DetailComponent implements OnInit {
- 
-  // property to attach the pickups to
-  pickUp: PickUp;
-
-  // pickUps url
-  pickupsUrl
-
+  
+  
   constructor(
     private route: ActivatedRoute,
-    private pickupService: PickUpService
+    private pickupService: PickUpService,
+    private location: Location,
+    public feedBackService: FeedBackService
   ) { }
 
-  getPickUp(): void {
-    // take a snap shot of the url and extract the parameter <id> from it
-    const id = this.route.snapshot.paramMap.get('id');
-    // pass the id to the getPickUp method of the pickups service
-    this.pickupService.getPickUp(this.pickupsUrl,id).subscribe((p)=>this.pickUp = p)
-  }
+  
 
   ngOnInit(): void {
-    this.getPickUp();
+
   }
+
 
 }

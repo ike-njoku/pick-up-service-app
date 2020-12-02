@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FeedBackService } from '../feed-back.service';
 import { PickUp } from '../pick-up-interface';
 import { PickUpService } from '../pick-up.service';
 
@@ -13,20 +14,23 @@ import { PickUpService } from '../pick-up.service';
 export class ListComponent implements OnInit {
   // the data source from where the table is populated
   dataSource: PickUp[];
-
+  
   // defining the columns to be displayed
   displayedColumns: string[]=['id', 'clientName', 'pickUpLocation', 'time', 'link'];
 
+  constructor(
+    private pickupService: PickUpService,
+    public feedBackService: FeedBackService
+    ) { }
 
-  // pickups url
-  private pickUpsUrl = 'api/PICKUPS';
-
-  
-  constructor(private pickupService: PickUpService) { }
-
-  // get pickups from server
+  // get pickups from server , catch error 
   getPickUps(){
-    this.pickupService.getPickUps(this.pickUpsUrl).subscribe((p)=>{this.dataSource = p })
+    this.pickupService.getPickUps().subscribe(
+      (p)=>{this.dataSource = p }, (error)=>{
+        let duration = 7000
+        // call the feedBack service to display the error;
+        this.feedBackService.returnFeedBack(error, duration);
+      } )
   }
   
   ngOnInit(): void {
