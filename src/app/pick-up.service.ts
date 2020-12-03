@@ -29,8 +29,15 @@ export class PickUpService {
   }
 
 
-
-
+  // get PickUp (single pickUp , confer detailComponent)
+  getPickUp(id): Observable<PickUp[]>{
+    // define the pickUp to fetch
+    const url = `${this.pickUpsUrl}/${id}`;
+    return this.http.get<PickUp[]>(url).pipe(
+      // catch error
+      catchError(this.handleError)
+    )
+  }
 
   // handle http errors
   handleError(error){

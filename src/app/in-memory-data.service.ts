@@ -8,13 +8,16 @@ export class InMemoryDataService implements InMemoryDbService {
 
   createDb(){
     const PICKUPS =[
-      {id: 1, 
+      {id: 'OCTO-001', 
         pickUpTime:'Wed Nov 25 2020 11:23:26 GMT-0800', 
         address: {
         firstName:'David',
+        lastName: 'Chimamanda', 
         phoneNumber: 7038686694,
         zip:'5445-Aba',
-        street:'MungoPark'
+        street:'MungoPark Close',
+        state:'Owerri',
+        country: 'Nigeria',
       },pickedUp:true},
       
       {id: 2, 
