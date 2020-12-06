@@ -21,8 +21,19 @@ export class DetailComponent implements OnInit {
   ) { }
 
   // property to attach fetched Pickup to
-  pickUp;   
+  pickUp: PickUp; 
 
+  // pickup id
+  pickUpId;
+
+  pickedUp;
+
+
+  // get PickUP id from URL
+  getId(): void{
+    const id = this.route.snapshot.paramMap.get('id');
+    this.pickUpId = id;
+  }
 
   // go back (previous page)
   goBack(){
@@ -31,11 +42,19 @@ export class DetailComponent implements OnInit {
 
   // fetch pickUp details
   getPickUp(){
-    // get the id from the url
-    const pickUpId = this.route.snapshot.paramMap.get('id');
+    this.getId();
     // call the pickUpService.getPickUp to return the details of the pickup with said ID
-    this.pickupService.getPickUp(pickUpId)
-      .subscribe((p)=>this.pickUp = p, (error)=>this.feedBackService.returnFeedBack(error, 800))
+    this.pickupService.getPickUp(this.pickUpId).subscribe((m)=>this.pickUp=m,(error)=>this.feedBackService.returnFeedBack(error, 8000));
+      
+  }
+
+
+  // mark item as picked
+  markAsPicked(): void{
+    this.pickupService.markAsPicked(this.pickUpId).subscribe((p)=>this.pickedUp = p, (error)=>{
+      console.log(error);
+      this.feedBackService.returnFeedBack(error,800);
+    })
   }
 
   ngOnInit(): void {

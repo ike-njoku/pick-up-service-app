@@ -8,13 +8,12 @@ import { FeedBackService } from '../feed-back.service';
 })
 export class FeedBackComponent implements OnInit {
 
-  feedBack ;
-  constructor(private feedBackService: FeedBackService) { }
+  constructor(private feedBackService: FeedBackService) {
+   }
  
+
   ngOnInit(): void {
-    this.feedBack = this.feedBackService.feedBack;
   }
 
   
-
 }

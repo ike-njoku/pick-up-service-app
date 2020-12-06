@@ -18,7 +18,7 @@ export class InMemoryDataService implements InMemoryDbService {
         street:'MungoPark Close',
         state:'Owerri',
         country: 'Nigeria',
-      },pickedUp:true},
+      },pickedUp:false},
       
       {id: 2, 
         pickUpTime:'Wed Nov 25 2020 12:54:47 GMT-0800', 

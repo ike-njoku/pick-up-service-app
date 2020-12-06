@@ -1,70 +1,100 @@
 
 <div class="pad-3 grid font-large">
-    <mat-card class="col-8">
-        <div  class="pad-2">
-            <div class="font-small font-bold">
-                Shipment Id-
-            </div> 
-            <!-- id -->
-            <span class="f-right">
-                {{pickUp.id}} 
-            </span>
-        </div>
-        <mat-divider></mat-divider>
-        <div  class="pad-2"> 
-            <div class="font-small font-bold">
-                Client Name- 
-            </div> 
-            <!-- name -->
-            <span class="f-right">
-                {{pickUp.address.firstName}} 
-            </span>
-            <!-- last name -->
-            <span *ngIf="pickUp.address.lastName">
-                {{pickUp.address.lastName }}
-            </span>
-        </div>
-        <mat-divider></mat-divider>
-        <div  class="pad-2"> 
-            <div class="font-small font-bold">
-                Address-   
-            </div>
-            <!-- zip -->
-            <span class="f-right">
-                {{pickUp.address.zip}} 
-            </span>
-            <!-- street -->
-            <span *ngIf="pickUp.address.street">
-                , {{pickUp.address.street}}
-            </span>
 
-            <!-- state -->
-            <span *ngIf="pickUp.address.state">
-                , {{pickUp.address.state}}
-            </span>
-            <!-- country -->
-            <span *ngIf="pickUp.address.country">
-                , {{pickUp.address.country}}.
-            </span>
-        </div>
+    <!-- <ng-container *ngIf="; else elseTemplate"> -->
+        <!-- <mat-card class="col-8 col-sm-full"> -->
+            
+            <!-- <div class="grid col-12"> -->
+                <!-- <div class="col-8"> -->
+                    <!-- This Item has been picked Up -->
+                <!-- </div> -->
+                <!-- <div class="col-4"> -->
+                    <!-- undo the pick up -->
+                    <!-- <button class="float-right" mat-raised-button>Undo Pick Up</button> -->
+                <!-- </div> -->
+            <!-- </div> -->
+
+        <!-- </mat-card> -->
+    <!-- </ng-container> -->
+    <!--  -->
+    <!-- <ng-template #elseTemplate> -->
         
-
-        <!-- contact details -->
-        <div *ngIf="pickUp.address.phoneNumber|| pickUp.address.email" class="pad-2">
+        
+        <mat-card *ngIf="pickUp"  class="col-8 col-sm-full">
+            <div  class="pad-2">
+                <div class="font-small font-bold">
+                    Shipment Id-
+                </div> 
+                <!-- id -->
+                <span>
+                    {{pickUp.id}}
+                </span>
+            </div>
             <mat-divider></mat-divider>
-            <div class="font-small font-bold">
-                Contact-
+            <div  class="pad-2"> 
+                <div class="font-small font-bold">
+                    Client Name- 
+                </div> 
+                <!-- name -->
+                <span class="f-right">
+                    {{pickUp.address.firstName}} 
+                </span>
+                <!-- last name -->
+                <span *ngIf="pickUp.address.lastName">
+                    {{pickUp.address.lastName }}
+                </span>
             </div>
-            <span *ngIf="pickUp.address.phoneNumber" >
-                {{pickUp.address.phoneNumber}}
-            </span>
-        </div>
-        <!-- alt phone Number -->
-        <span *ngIf="pickUp.address.altPhoneNumber" >
-            {{pickUp.address.altPhoneNumber}}
-        </span>
-    </div>
-        
-        <!--  -->
-    </mat-card>
+            <mat-divider></mat-divider>
+            <div  class="pad-2"> 
+                <div class="font-small font-bold">
+                    Address-   
+                </div>
+                <!-- zip -->
+                <span class="f-right">
+                    {{pickUp.address.zip}} 
+                </span>
+                <!-- street -->
+                <span *ngIf="pickUp.address.street">
+                    , {{pickUp.address.street}}
+                </span>
+    
+                <!-- state -->
+                <span *ngIf="pickUp.address.state">
+                    , {{pickUp.address.state}}
+                </span>
+                <!-- country -->
+                <span *ngIf="pickUp.address.country">
+                    , {{pickUp.address.country}}.
+                </span>
+            </div>
+            
+    
+            <!-- contact details -->
+            <div *ngIf="pickUp.address.phoneNumber|| pickUp.address.email" class="pad-2 mg-b-2">
+                <mat-divider></mat-divider>
+                <div class="font-small font-bold">
+                    Contact-
+                </div>
+                <span *ngIf="pickUp.address.phoneNumber" >
+                    {{pickUp.address.phoneNumber}}
+                </span>
+                <!-- alt phone Number -->
+                <span *ngIf="pickUp.address.altPhoneNumber" >
+                    {{pickUp.address.altPhoneNumber}}
+                </span>
+            
+            </div>
+            
+            <!-- button (back) -->
+            <div class="col-12 mg-t-2">
+                <hr>
+                <button mat-button class="mat-raised-button" (click)="goBack()"> Go Back</button>
+                <button color=primary mat-button class="float-right mat-raised-button" (click)="markAsPicked()">Mark as Picked</button>
+            </div>
+        </mat-card>
+    <!-- </ng-template> -->
+    
+
+    
+    
 </div>
