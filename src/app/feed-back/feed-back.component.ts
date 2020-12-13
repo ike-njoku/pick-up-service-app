@@ -6,11 +6,10 @@ import { FeedBackService } from '../feed-back.service';
   templateUrl: './feed-back.component.html',
   styleUrls: ['./feed-back.component.css']
 })
-export class FeedBackComponent implements OnInit {
 
+export class FeedBackComponent implements OnInit {
   constructor(private feedBackService: FeedBackService) {
-   }
- 
+  }
 
   ngOnInit(): void {
   }

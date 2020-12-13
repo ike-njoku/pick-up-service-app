@@ -47,8 +47,8 @@ export class PickUpService {
     }).pipe(
       catchError(this.handleError)
     );
-
   }
+
 
   // handle http errors
   handleError(error){
