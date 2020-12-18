@@ -11,6 +11,8 @@ export class FeedBackComponent implements OnInit {
   constructor(private feedBackService: FeedBackService) {
   }
 
+  readonly feedBack = this.feedBackService.feedBack;
+
   ngOnInit(): void {
   }
 

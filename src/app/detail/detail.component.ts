@@ -53,7 +53,7 @@ export class DetailComponent implements OnInit {
   markAsPicked(): void{
     this.pickupService.markAsPicked(this.pickUpId).subscribe((p)=>this.pickedUp = p, (error)=>{
       console.log(error);
-      this.feedBackService.returnFeedBack(error,800);
+      this.feedBackService.returnFeedBack(error,8000);
     })
   }
 

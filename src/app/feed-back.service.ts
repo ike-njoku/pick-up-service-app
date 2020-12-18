@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FeedBackService {
   // property to attach feedBack/ errors to
-  feedBack = '';
+  feedBack = new BehaviorSubject('');
   // duration
   duration;
 
@@ -13,7 +14,7 @@ export class FeedBackService {
 
   // give feedback
   returnFeedBack(feedBack, duration){
-    this.feedBack = feedBack;
+    this.feedBack.next(feedBack);
     this.duration = duration;
     // clear feedBack
     this.clearFeedBack();
@@ -22,7 +23,7 @@ export class FeedBackService {
   clearFeedBack(){
     // clear the feed back after {duration}
    setTimeout(() => {
-      this.feedBack = '';
+      this.feedBack.next('');
    }, this.duration);
     
   }

@@ -1,6 +1,5 @@
-
-<mat-card *ngIf="feedBackService.feedBack.length">
+<mat-card *ngIf="feedBack | async as message">
     <!-- feedBack -->
-    {{feedBackService.feedBack}}
+    {{message}}
 </mat-card>
 

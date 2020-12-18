@@ -11,7 +11,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 // http
 import { HttpClientModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { InMemoryDataService } from './in-memory-data.service';
+// import { InMemoryDataService } from './in-memory-data.service';
 import { DetailComponent } from './detail/detail.component';
 import { FeedBackComponent } from './feed-back/feed-back.component';
 
@@ -30,7 +30,7 @@ import { FeedBackComponent } from './feed-back/feed-back.component';
     BrowserAnimationsModule,
     MaterialModule,
     HttpClientModule,
-    HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService,{dataEncapsulation: false})
+    // HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService,{dataEncapsulation: false})
   ],
   providers: [],
   bootstrap: [AppComponent]

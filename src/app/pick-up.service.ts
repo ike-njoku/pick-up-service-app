@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable, throwError,  } from 'rxjs';
 import { PickUp } from './pick-up-interface';
 import { catchError } from 'rxjs/operators';
+import { Address } from './address-interface';
 
 
 
@@ -17,7 +18,7 @@ export class PickUpService {
     ) { }
 
   // pickups api url
-  pickUpsUrl = 'api/PICKUPS';
+  pickUpsUrl = 'http://localhost:3000/pick_ups';
  
   // getPickUps (get the pickups listings)
   getPickUps(): Observable<PickUp[]>{
@@ -26,6 +27,13 @@ export class PickUpService {
       catchError(this.handleError)
     )
     
+  }
+
+  // delete after
+  getAddresses(): Observable<Address[]>{
+    return this.http.get<Address[]>('http://localhost:3000/addresses').pipe(
+      catchError(this.handleError)
+    )
   }
 
 
@@ -52,7 +60,8 @@ export class PickUpService {
 
   // handle http errors
   handleError(error){
-     return throwError(error.message || "SERVER ERROR...please retry" );
+    debugger;
+    return throwError(error.message || "SERVER ERROR...please retry" );
   }
 }
 
